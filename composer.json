@@ -1,11 +1,15 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "laravel/laravel",
+    "name": "cdavidme10/smart-tasks",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
+    "description": "SmartTasks is an application designed to help you organize your day-to-day simply, quickly, and efficiently.",
     "keywords": [
+        "framework",
+        "smart-tasks",
         "laravel",
-        "framework"
+        "react",
+        "tailwindcss",
+        "vite"
     ],
     "license": "MIT",
     "require": {
@@ -15,13 +19,16 @@
         "laravel/tinker": "^2.10.1"
     },
     "require-dev": {
+        "brianium/paratest": "^7.8",
         "fakerphp/faker": "^1.23",
         "laravel/pail": "^1.2.2",
         "laravel/pint": "^1.13",
         "laravel/sail": "^1.41",
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8.6",
-        "phpunit/phpunit": "^11.5.3"
+        "php-parallel-lint/php-parallel-lint": "^1.4",
+        "phpstan/phpstan": "^2.1",
+        "phpunit/phpunit": "^11.5"
     },
     "autoload": {
         "psr-4": {
@@ -57,8 +64,31 @@
         ],
         "test": [
             "@php artisan config:clear --ansi",
-            "@php artisan test"
+            "@php artisan test --parallel --processes=4 --stop-on-failure --colors=always"
+        ],
+        "lint": [
+            "./vendor/bin/parallel-lint ./app ./tests"
+        ],
+        "format": [
+            "./vendor/bin/pint --parallel"
+        ],
+        "analyse": [
+            "./vendor/bin/phpstan analyse"
+        ],
+        "ci": [
+            "@composer analyse",
+            "@composer lint",
+            "@composer format",
+            "@composer test"
         ]
+    },
+    "scripts-descriptions": {
+        "dev": "Runs the development server, queue listener, logs, and Vite concurrently",
+        "test": "Runs Laravel tests in parallel using paratest",
+        "lint": "Lints PHP files in app and tests directories",
+        "format": "Formats code using Laravel Pint",
+        "analyse": "Runs static analysis with PHPStan",
+        "ci": "Runs all CI checks (analyse, lint, format, paratest)"
     },
     "extra": {
         "laravel": {

@@ -8,5 +8,4 @@ return [
     // Default app name
     'app_name' => env('APP_NAME', 'Laravel'),
 
-
 ];
