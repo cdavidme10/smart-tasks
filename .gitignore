@@ -12,6 +12,7 @@
 /storage/pail
 /bootstrap/cache
 /vendor
+/coverage
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
