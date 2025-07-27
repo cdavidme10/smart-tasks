@@ -1,0 +1,15 @@
+{
+  "navbar": {
+    "home": "Inicio",
+    "about": "Acerca"
+  },
+  "home": {
+    "welcome": "¡Bienvenido a SmartTasks!",
+    "description": "Organiza tus tareas, mantén el enfoque y hazlo todo desde una sola app."
+  },
+  "about": {
+    "title": "Acerca de SmartTasks",
+    "description1": "SmartTasks es una aplicación diseñada para ayudarte a organizar tu día a día de forma simple, rápida y eficiente.",
+    "description2": "Esta app está construida con ♥ usando Laravel, React y TailwindCSS."
+  }
+}
