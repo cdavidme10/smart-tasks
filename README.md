@@ -98,10 +98,10 @@ Update your `.env`:
 APP_URL=http://smarttasks.test
 ```
 
-## 🧪 Running Tests
+## 🧪 Running Tests, Lints, PhpStan, Format
 
 ```bash
-sail artisan test
+sail composer ci
 ```
 
 ## 🐙 GitHub
