@@ -82,6 +82,14 @@ sail npm install
 sail npm run dev
 ```
 
+### 9. Install Git Hooks (Husky)
+
+To ensure every commit runs automated checks (like CI and OpenAPI validation), run the setup script:
+
+```bash
+sail npm run setup:husky
+```
+
 Visit [http://localhost](http://localhost) or your custom domain (e.g. `smarttasks.test`).
 
 ## 🌐 Optional: Custom Domain

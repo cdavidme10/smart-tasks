@@ -1,0 +1,31 @@
+summary: Update a project
+tags:
+  - Projects
+security:
+  - bearerAuth: []
+parameters:
+  - in: path
+    name: id
+    required: true
+    schema:
+      type: integer
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          name:
+            type: string
+responses:
+  '200':
+    description: Project updated
+  '401':
+    $ref: '../../components/responses/ErrorResponses.yaml#/UnauthorizedError'
+  '404':
+    $ref: '../../components/responses/ErrorResponses.yaml#/NotFoundError'
+  '422':
+    $ref: '../../components/responses/ErrorResponses.yaml#/ValidationError'
+  '500':
+    $ref: '../../components/responses/ErrorResponses.yaml#/ServerError'

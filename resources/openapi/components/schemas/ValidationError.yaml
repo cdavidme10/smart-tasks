@@ -1,0 +1,18 @@
+type: object
+properties:
+  message:
+    type: string
+    example: Validation failed
+  errors:
+    type: object
+    additionalProperties:
+      type: array
+      items:
+        type: string
+example:
+  message: Validation failed
+  errors:
+    email:
+      - "The email field is required."
+    password:
+      - "The password must be at least 8 characters."
