@@ -2,11 +2,22 @@
 
 . "$(dirname "$0")/_/husky.sh"
 
-# Run composer ci inside Sail
+# Wait for Sail to be ready
+for i in {1..10}; do
+  vendor/bin/sail php -v && break
+  echo "⏳ Waiting for Sail to start..."
+  sleep 2
+done
+
+echo "🚀 Running composer ci..."
 vendor/bin/sail composer ci || exit 1
 
-# Run OpenAPI validation inside Sail
+echo "🎯 Running lint-staged..."
+vendor/bin/sail npx lint-staged || exit 1
+
+echo "📚 Validating OpenAPI spec..."
 vendor/bin/sail npm run openapi:validate || exit 1
 
-echo "✅ All checks passed. Proceeding with commit!"
+echo "✅ All checks passed! Proceeding with commit!"
 exit 0
+
