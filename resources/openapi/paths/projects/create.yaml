@@ -1,0 +1,28 @@
+summary: Create a new project
+tags:
+  - Projects
+security:
+  - bearerAuth: []
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        type: object
+        required: [name]
+        properties:
+          name:
+            type: string
+responses:
+  '201':
+    description: Project created
+    content:
+      application/json:
+        schema:
+          $ref: '../../components/schemas/Project.yaml'
+  '401':
+    $ref: '../../components/responses/ErrorResponses.yaml#/UnauthorizedError'
+  '422':
+    $ref: '../../components/responses/ErrorResponses.yaml#/ValidationError'
+  '500':
+    $ref: '../../components/responses/ErrorResponses.yaml#/ServerError'

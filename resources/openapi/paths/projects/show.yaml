@@ -1,0 +1,24 @@
+summary: Get a project by ID
+tags:
+  - Projects
+security:
+  - bearerAuth: []
+parameters:
+  - in: path
+    name: id
+    required: true
+    schema:
+      type: integer
+responses:
+  '200':
+    description: Project found
+    content:
+      application/json:
+        schema:
+          $ref: '../../components/schemas/Project.yaml'
+  '401':
+    $ref: '../../components/responses/ErrorResponses.yaml#/UnauthorizedError'
+  '404':
+    $ref: '../../components/responses/ErrorResponses.yaml#/NotFoundError'
+  '500':
+    $ref: '../../components/responses/ErrorResponses.yaml#/ServerError'

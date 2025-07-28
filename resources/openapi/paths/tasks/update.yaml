@@ -1,0 +1,35 @@
+summary: Update a task
+tags:
+  - Tasks
+security:
+  - bearerAuth: []
+parameters:
+  - in: path
+    name: id
+    required: true
+    schema:
+      type: integer
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          title:
+            type: string
+          description:
+            type: string
+          status:
+            type: string
+responses:
+  '200':
+    description: Task updated
+  '401':
+    $ref: '../../components/responses/ErrorResponses.yaml#/UnauthorizedError'
+  '404':
+    $ref: '../../components/responses/ErrorResponses.yaml#/NotFoundError'
+  '422':
+    $ref: '../../components/responses/ErrorResponses.yaml#/ValidationError'
+  '500':
+    $ref: '../../components/responses/ErrorResponses.yaml#/ServerError'

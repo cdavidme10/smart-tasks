@@ -1,0 +1,55 @@
+openapi: 3.0.3
+info:
+  title: Smart Tasks Frontend API
+  version: 1.0.0
+servers:
+  - url: http://localhost:8000/api
+paths:
+  /auth/login:
+    $ref: './paths/auth/login.yaml'
+  /auth/logout:
+    $ref: './paths/auth/logout.yaml'
+  /auth/register:
+    $ref: './paths/auth/register.yaml'
+  /tasks:
+    get:
+      $ref: './paths/tasks/list.yaml'
+    post:
+      $ref: './paths/tasks/create.yaml'
+  /tasks/{id}:
+    get:
+      $ref: './paths/tasks/show.yaml'
+    put:
+      $ref: './paths/tasks/update.yaml'
+    delete:
+      $ref: './paths/tasks/delete.yaml'
+  /projects:
+    get:
+      $ref: './paths/projects/list.yaml'
+    post:
+      $ref: './paths/projects/create.yaml'
+  /projects/{id}:
+    get:
+      $ref: './paths/projects/show.yaml'
+    put:
+      $ref: './paths/projects/update.yaml'
+    delete:
+      $ref: './paths/projects/delete.yaml'
+components:
+  schemas:
+    Task:
+      $ref: './components/schemas/Task.yaml'
+    Project:
+      $ref: './components/schemas/Project.yaml'
+    User:
+      $ref: './components/schemas/User.yaml'
+    AuthResponse:
+      $ref: './components/schemas/AuthResponse.yaml'
+    Error:
+      $ref: './components/schemas/Error.yaml'
+    ValidationError:
+      $ref: './components/schemas/ValidationError.yaml'
+  responses:
+    $ref: './components/responses/ErrorResponses.yaml'
+  securitySchemes:
+    $ref: './components/securitySchemes.yaml'

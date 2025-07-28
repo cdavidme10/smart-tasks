@@ -1,0 +1,22 @@
+type: object
+properties:
+  id:
+    type: integer
+  title:
+    type: string
+  description:
+    type: string
+    nullable: true
+  status:
+    type: string
+    enum: [pending, in-progress, on-hold, cancelled, completed]
+  projectId:
+    type: integer
+  userId:
+    type: integer
+  createdAt:
+    type: string
+    format: date-time
+  updatedAt:
+    type: string
+    format: date-time

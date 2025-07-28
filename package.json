@@ -4,7 +4,11 @@
     "type": "module",
     "scripts": {
         "build": "vite build",
-        "dev": "vite"
+        "dev": "vite",
+        "openapi:validate": "swagger-cli validate ./resources/openapi/openapi.yaml",
+        "openapi:generate": "npm run openapi:validate && swagger-cli bundle ./resources/openapi/openapi.yaml --outfile ./resources/openapi/apiBundle.json --type json",
+        "setup:husky": "bash ./scripts/setup-husky.sh",
+        "prepare": "husky install"
     },
     "devDependencies": {
         "@tailwindcss/vite": "^4.0.0",
@@ -12,6 +16,7 @@
         "autoprefixer": "^10.4.21",
         "axios": "^1.8.2",
         "concurrently": "^9.0.1",
+        "husky": "^8.0.0",
         "laravel-vite-plugin": "^2.0.0",
         "postcss": "^8.5.6",
         "tailwindcss": "^4.1.11",
@@ -22,6 +27,7 @@
         "react": "^19.1.0",
         "react-dom": "^19.1.0",
         "react-i18next": "^15.6.1",
-        "react-router-dom": "^7.7.1"
+        "react-router-dom": "^7.7.1",
+        "swagger-cli": "^4.0.4"
     }
 }

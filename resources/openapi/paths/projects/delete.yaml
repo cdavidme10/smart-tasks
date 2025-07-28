@@ -1,0 +1,20 @@
+summary: Delete a project
+tags:
+  - Projects
+security:
+  - bearerAuth: []
+parameters:
+  - in: path
+    name: id
+    required: true
+    schema:
+      type: integer
+responses:
+  '204':
+    description: Project deleted
+  '401':
+    $ref: '../../components/responses/ErrorResponses.yaml#/UnauthorizedError'
+  '404':
+    $ref: '../../components/responses/ErrorResponses.yaml#/NotFoundError'
+  '500':
+    $ref: '../../components/responses/ErrorResponses.yaml#/ServerError'

@@ -1,0 +1,12 @@
+#!/bin/sh
+
+. "$(dirname "$0")/_/husky.sh"
+
+# Run composer ci inside Sail
+vendor/bin/sail composer ci || exit 1
+
+# Run OpenAPI validation inside Sail
+vendor/bin/sail npm run openapi:validate || exit 1
+
+echo "✅ All checks passed. Proceeding with commit!"
+exit 0

@@ -88,3 +88,6 @@ jobs:
 
       - name: Run CI Checks
         run: composer ci
+
+      - name: Validate && Generate OpenAPI bundle
+        run: npm run openapi:generate
