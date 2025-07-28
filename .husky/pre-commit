@@ -9,14 +9,18 @@ for i in {1..10}; do
   sleep 2
 done
 
-echo "🚀 Running composer ci..."
-vendor/bin/sail composer ci || exit 1
+run_or_exit() {
+  echo "🔧 $1"
+  shift
+  "$@" || {
+    echo "❌ Failed: $1"
+    exit 1
+  }
+}
 
-echo "🎯 Running lint-staged..."
-vendor/bin/sail npx lint-staged || exit 1
-
-echo "📚 Validating OpenAPI spec..."
-vendor/bin/sail npm run openapi:validate || exit 1
+run_or_exit "Composer CI" vendor/bin/sail composer ci
+run_or_exit "Lint staged" vendor/bin/sail npx lint-staged
+run_or_exit "OpenAPI validate" vendor/bin/sail npm run openapi:validate
 
 echo "✅ All checks passed! Proceeding with commit!"
 exit 0

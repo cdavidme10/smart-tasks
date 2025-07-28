@@ -1,5 +1,8 @@
 {
-    "*.php": ["vendor/bin/php-cs-fixer fix --dry-run --allow-risky=yes --diff"],
+    "*.php": [
+        "vendor/bin/php-cs-fixer fix --dry-run --allow-risky=yes --diff",
+        "vendor/bin/phpstan analyse"
+    ],
     "*.{js,jsx,ts,tsx}": ["npx eslint --fix", "npx prettier --write"],
     "*.{json,css,scss,md,yml,yaml}": ["npx prettier --write"]
 }
