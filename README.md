@@ -90,12 +90,6 @@ To ensure every commit runs automated checks (like CI and OpenAPI validation), r
 sail npm run setup:husky
 ```
 
-### 10. Generate api routes based on open-api definition
-
-```bash
-sail npm run setup:husky
-```
-
 Visit [http://localhost](http://localhost) or your custom domain (e.g. `smarttasks.test`).
 
 ## 🌐 Optional: Custom Domain
@@ -219,12 +213,12 @@ Grok IA help: https://grok.com/chat/ca965877-d231-4ef6-a774-611160987b60
 - ✅ Database seeded with Projects, Tasks, and Users
 - ✅ UserObserver assigns milestone on 100-user multiples
 - ✅ OpenAPI-based API calls generated from open api spec
+- ✅ OpenAPI-based API calls and schemas used on frontend
 
 WIP:
-
-- ✅ OpenAPI-based API calls and schemas used on frontend
-- ✅ React components for login, logout, projects, tasks created
-- ✅ Data fetching via centralized hooks with error/loading states
+- ⌛ React components for login, logout, projects, tasks created
+- ⌛ Create Pages for Main Functions in React
+- ⌛ Data fetching via centralized hooks with error/loading states
 
 ## 🐙 GitHub
 
