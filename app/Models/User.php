@@ -8,11 +8,29 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
+use Laravel\Sanctum\PersonalAccessToken;
 
+/**
+ * @property-read int $id
+ * @property-read string $name
+ * @property-read string $email
+ * @property-read string $password
+ * @property-read string $remember_token
+ * @property-read string $milestone
+ * @property-read ?string $email_verified_at
+ * @property-read Project[] $projects
+ * @property-read Task[] $tasks
+ * @property-read PersonalAccessToken[] $tokens
+ */
 class User extends Authenticatable
 {
+    use HasApiTokens;
+
     /** @phpstan-use HasFactory<UserFactory> */
-    use HasFactory, Notifiable;
+    use HasFactory;
+
+    use Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -55,5 +73,14 @@ class User extends Authenticatable
     {
         /** @var HasMany<Project, User> */
         return $this->hasMany(Project::class);
+    }
+
+    /**
+     * @return HasMany<Task, User>
+     */
+    public function tasks(): HasMany
+    {
+        /** @var HasMany<Task, User> */
+        return $this->hasMany(Task::class);
     }
 }

@@ -7,7 +7,7 @@ on:
     branches: [master]
 
 jobs:
-  ci:
+  smart-tasks-ci:
     runs-on: ubuntu-latest
 
     services:
@@ -30,7 +30,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.2'
+          php-version: "8.2"
           extensions: mbstring, pdo, pdo_mysql
           tools: composer:v2
 
@@ -87,7 +87,7 @@ jobs:
         run: npm run build
 
       - name: Run CI Checks
-        run: composer ci
+        run: composer ci:check
 
       - name: Validate && Generate OpenAPI bundle
         run: npm run openapi:generate

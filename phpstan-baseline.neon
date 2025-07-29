@@ -1,0 +1,7 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Call to an undefined method Spatie\\QueryBuilder\\QueryBuilder\<TModel of Illuminate\\Database\\Eloquent\\Model\>\:\:owned\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Repositories/BaseRepository.php
