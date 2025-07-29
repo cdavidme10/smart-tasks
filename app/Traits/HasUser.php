@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Traits;
+
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Auth;
 

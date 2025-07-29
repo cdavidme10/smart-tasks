@@ -14,15 +14,15 @@ class ManagerServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
-        $this->app->bind(TaskManager::class, function ($app) {
+        $this->app->singleton(TaskManager::class, function ($app) {
             return new TaskManager($app->make(TaskRepository::class));
         });
 
-        $this->app->bind(ProjectManager::class, function ($app) {
+        $this->app->singleton(ProjectManager::class, function ($app) {
             return new ProjectManager($app->make(ProjectRepository::class));
         });
 
-        $this->app->bind(AuthManager::class, function ($app) {
+        $this->app->singleton(AuthManager::class, function ($app) {
             return new AuthManager($app->make(UserRepository::class));
         });
     }

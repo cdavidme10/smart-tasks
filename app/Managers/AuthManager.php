@@ -25,23 +25,29 @@ class AuthManager extends BaseManager
     }
 
     /**
-     * @param  array<string, mixed>  $credentials
-     * @return array{user: User, token: string}
+     * @param  array<string, mixed>  $data
      */
-    public function login(array $credentials): array
+    public function register(array $data): string
     {
-        if (! Auth::attempt($credentials)) {
+        $user = $this->create($data);
+        $token = $user->createToken('auth_token')->plainTextToken;
+
+        return $token;
+    }
+
+    /**
+     * @param  array<string, mixed>  $data
+     */
+    public function login(array $data): string
+    {
+        if (! Auth::attempt($data)) {
             abort(401, 'Invalid credentials.');
         }
 
         /** @var User $user */
         $user = Auth::user();
-        $token = $user->createToken('auth_token')->plainTextToken;
 
-        return [
-            'user' => $user,
-            'token' => $token,
-        ];
+        return $user->createToken('auth_token')->plainTextToken;
     }
 
     /**
@@ -60,6 +66,5 @@ class AuthManager extends BaseManager
         $user = Auth::user();
 
         $this->userRepository()->deleteTokens($user);
-        Auth::logout();
     }
 }

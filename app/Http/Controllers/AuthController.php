@@ -6,10 +6,15 @@ use App\Http\Requests\Auth\LoginRequest;
 use App\Http\Requests\Auth\RegisterRequest;
 use App\Managers\AuthManager;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Response;
 use Psr\Log\LoggerInterface;
 
 class AuthController extends Controller
 {
+    private const TOKEN_TYPE = 'Bearer';
+
+    private const EXPIRATION_TIME = '60 Minutes';
+
     public function __construct(
         protected readonly AuthManager $authManager,
         protected readonly LoggerInterface $logger
@@ -17,22 +22,25 @@ class AuthController extends Controller
 
     public function register(RegisterRequest $request): JsonResponse
     {
-        $user = $this->authManager->create($request->validated());
+        $token = $this->authManager->register($request->validated());
 
         return response()->json([
             'message' => 'User registered successfully.',
-            'user' => $user,
+            'token' => $token,
+            'token_type' => self::TOKEN_TYPE,
+            'expires_in' => self::EXPIRATION_TIME,
         ], 201);
     }
 
     public function login(LoginRequest $request): JsonResponse
     {
-        $result = $this->authManager->login($request->validated());
+        $token = $this->authManager->login($request->validated());
 
         return response()->json([
             'message' => 'Login successful.',
-            'token' => $result['token'],
-            'user' => $result['user'],
+            'token' => $token,
+            'token_type' => self::TOKEN_TYPE,
+            'expires_in' => self::EXPIRATION_TIME,
         ]);
     }
 
@@ -42,6 +50,6 @@ class AuthController extends Controller
 
         return response()->json([
             'message' => 'Logout successful.',
-        ]);
+        ], Response::HTTP_NO_CONTENT);
     }
 }

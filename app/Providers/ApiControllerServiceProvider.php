@@ -15,14 +15,14 @@ class ApiControllerServiceProvider extends ServiceProvider
     {
         $logger = $this->app->make(LoggerInterface::class);
 
-        $this->app->bind(ProjectController::class, function ($app) use ($logger) {
+        $this->app->singleton(ProjectController::class, function ($app) use ($logger) {
             return new ProjectController(
                 $app->make(ProjectManager::class),
                 $logger
             );
         });
 
-        $this->app->bind(TaskController::class, function ($app) use ($logger) {
+        $this->app->singleton(TaskController::class, function ($app) use ($logger) {
             return new TaskController(
                 $app->make(TaskManager::class),
                 $logger

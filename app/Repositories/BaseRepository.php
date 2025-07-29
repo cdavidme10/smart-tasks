@@ -34,10 +34,10 @@ abstract class BaseRepository implements RepositoryInterface
         }
 
         return $builder
-            ->allowedFilters($this->filters())
+            ->allowedFields($this->fields())
             ->allowedIncludes($this->includes())
-            ->allowedSorts($this->sorts())
-            ->allowedFields($this->fields());
+            ->allowedFilters($this->filters())
+            ->allowedSorts($this->sorts());
     }
 
     public function find(int $id): ?Model

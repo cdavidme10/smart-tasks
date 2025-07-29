@@ -7,7 +7,7 @@ on:
     branches: [master]
 
 jobs:
-  ci:
+  smart-tasks-ci:
     runs-on: ubuntu-latest
 
     services:

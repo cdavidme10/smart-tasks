@@ -36,7 +36,7 @@ class DeleteRequest extends FormRequest
      */
     public function validationData(): array
     {
-        return array_merge($this->validationData(), [
+        return array_merge($this->all(), [
             'id' => $this->route('task'),
         ]);
     }

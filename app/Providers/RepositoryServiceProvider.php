@@ -14,16 +14,16 @@ class RepositoryServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
-        $this->app->bind(ProjectRepository::class, function ($app) {
-            return new ProjectRepository($app->make(Project::class));
+        $this->app->singleton(ProjectRepository::class, function ($app) {
+            return new ProjectRepository(new Project);
         });
 
-        $this->app->bind(TaskRepository::class, function ($app) {
-            return new TaskRepository($app->make(Task::class));
+        $this->app->singleton(TaskRepository::class, function ($app) {
+            return new TaskRepository(new Task);
         });
 
-        $this->app->bind(UserRepository::class, function ($app) {
-            return new UserRepository($app->make(User::class));
+        $this->app->singleton(UserRepository::class, function ($app) {
+            return new UserRepository(new User);
         });
     }
 
