@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\User;
+use Illuminate\Database\Eloquent\Collection;
 use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\AllowedSort;
 
@@ -48,5 +49,13 @@ class UserRepository extends BaseRepository
     public function deleteTokens(User $user): void
     {
         $user->tokens()->delete();
+    }
+
+    /**
+     * @return Collection<int, User>
+     */
+    public function getUsersWithoutMilestone(): Collection
+    {
+        return User::query()->withoutMilestone()->get();
     }
 }

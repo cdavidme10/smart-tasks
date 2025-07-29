@@ -67,4 +67,20 @@ class AuthManager extends BaseManager
 
         $this->userRepository()->deleteTokens($user);
     }
+
+    public function checkMilestone(): void
+    {
+        $totalUsers = $this->userRepository()->count();
+        $milestone = intdiv($totalUsers, 100);
+        $usersToUpdate = $this->userRepository()->getUsersWithoutMilestone();
+
+        if ($milestone > 0 && $usersToUpdate->count() % 100 === 0) {
+
+            $usersToUpdate->each(function (User $user) use ($milestone) {
+
+                $user->milestone = "milestone {$milestone}";
+                $user->save();
+            });
+        }
+    }
 }

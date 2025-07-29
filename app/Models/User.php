@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Database\Factories\UserFactory;
+use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -13,12 +14,12 @@ use Laravel\Sanctum\PersonalAccessToken;
 
 /**
  * @property-read int $id
- * @property-read string $name
- * @property-read string $email
+ * @property string $name
+ * @property string $email
  * @property-read string $password
  * @property-read string $remember_token
- * @property-read string $milestone
- * @property-read ?string $email_verified_at
+ * @property string $milestone
+ * @property ?string $email_verified_at
  * @property-read Project[] $projects
  * @property-read Task[] $tasks
  * @property-read PersonalAccessToken[] $tokens
@@ -82,5 +83,10 @@ class User extends Authenticatable
     {
         /** @var HasMany<Task, User> */
         return $this->hasMany(Task::class);
+    }
+
+    public function scopeWithoutMilestone(Builder $query): Builder
+    {
+        return $query->whereNull('milestone');
     }
 }

@@ -79,6 +79,11 @@ abstract class BaseRepository implements RepositoryInterface
         $model->delete();
     }
 
+    public function count(): int
+    {
+        return $this->query()->count();
+    }
+
     /**
      * @return array<AllowedFilter|string>
      */
