@@ -1,5 +1,6 @@
 includes:
     - phpstan-baseline.neon
+    - vendor/larastan/larastan/extension.neon
     - vendor/phpstan/phpstan-phpunit/extension.neon
     - vendor/phpstan/phpstan-mockery/extension.neon
 
@@ -9,6 +10,6 @@ parameters:
         - app
         - tests
     excludePaths:
-        - ./vendor
+        - vendor
     tmpDir: .phpstan/cache
     phpVersion: 80400
