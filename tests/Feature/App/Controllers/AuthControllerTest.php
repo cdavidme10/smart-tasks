@@ -13,7 +13,7 @@ class AuthControllerTest extends TestCase
 
     private const EXPIRATION_TIME = '60 Minutes';
 
-    private const DEFAULT_PASSWORD = 'p1S$w0rd . ';
+    private const DEFAULT_PASSWORD = 'p1S$w0rd.23';
 
     private const AUTH_ROUTE = 'api/auth';
 

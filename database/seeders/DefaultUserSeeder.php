@@ -6,6 +6,7 @@ use App\Models\Project;
 use App\Models\Task;
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DefaultUserSeeder extends Seeder
 {
@@ -18,7 +19,7 @@ class DefaultUserSeeder extends Seeder
             ['email' => 'g9lNl@example.com'],
             [
                 'name' => 'John Doe',
-                'password' => bcrypt('password'),
+                'password' => Hash::make('p1S$w0rd.23'),
             ]
         );
 
