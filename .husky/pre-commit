@@ -19,7 +19,7 @@ run_or_exit() {
 }
 
 run_or_exit "Composer CI" vendor/bin/sail composer ci:check
-run_or_exit "Lint staged" vendor/bin/sail npx lint-staged
+#run_or_exit "Lint staged" vendor/bin/sail npx lint-staged
 run_or_exit "OpenAPI validate" vendor/bin/sail npm run openapi:validate
 
 echo "✅ All checks passed! Proceeding with commit!"

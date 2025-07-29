@@ -1,4 +1,9 @@
 {
-    "*.{js,jsx,ts,tsx}": ["npx eslint --fix", "npx prettier --write"],
-    "*.{json,css,scss,md,yml,yaml}": ["npx prettier --write"]
+  "!resources/js/api/**/*.{js,jsx,ts,tsx}": [
+    "npx eslint --fix",
+    "npx prettier --write"
+  ],
+  "!resources/js/api/**/*.{json,css,scss,md,yml,yaml}": [
+    "npx prettier --write"
+  ]
 }

@@ -1,3 +1,4 @@
+operationId: deleteTask
 summary: Delete a task
 tags:
   - Tasks
@@ -10,11 +11,11 @@ parameters:
     schema:
       type: integer
 responses:
-  '204':
+  "204":
     description: Task deleted
-  '401':
-    $ref: '../../components/responses/ErrorResponses.yaml#/UnauthorizedError'
-  '404':
-    $ref: '../../components/responses/ErrorResponses.yaml#/NotFoundError'
-  '500':
-    $ref: '../../components/responses/ErrorResponses.yaml#/ServerError'
+  "401":
+    $ref: "../../components/responses/ErrorResponses.yaml#/UnauthorizedError"
+  "404":
+    $ref: "../../components/responses/ErrorResponses.yaml#/NotFoundError"
+  "500":
+    $ref: "../../components/responses/ErrorResponses.yaml#/ServerError"

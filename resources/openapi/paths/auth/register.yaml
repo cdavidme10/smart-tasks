@@ -1,4 +1,5 @@
 post:
+  operationId: register
   summary: Register a new user
   tags:
     - Auth
@@ -18,9 +19,13 @@ post:
             password:
               type: string
   responses:
-    '201':
+    "201":
       description: Successfully registered
-    '422':
-      $ref: '../../components/responses/ErrorResponses.yaml#/ValidationError'
-    '500':
-      $ref: '../../components/responses/ErrorResponses.yaml#/ServerError'
+      content:
+        application/json:
+          schema:
+            $ref: "../../components/schemas/AuthResponse.yaml"
+    "422":
+      $ref: "../../components/responses/ErrorResponses.yaml#/ValidationError"
+    "500":
+      $ref: "../../components/responses/ErrorResponses.yaml#/ServerError"

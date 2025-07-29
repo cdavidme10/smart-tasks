@@ -1,3 +1,4 @@
+operationId: getTask
 summary: Get a task by ID
 tags:
   - Tasks
@@ -10,15 +11,15 @@ parameters:
     schema:
       type: integer
 responses:
-  '200':
+  "200":
     description: Task retrieved
     content:
       application/json:
         schema:
-          $ref: '../../components/schemas/Task.yaml'
-  '401':
-    $ref: '../../components/responses/ErrorResponses.yaml#/UnauthorizedError'
-  '404':
-    $ref: '../../components/responses/ErrorResponses.yaml#/NotFoundError'
-  '500':
-    $ref: '../../components/responses/ErrorResponses.yaml#/ServerError'
+          $ref: "../../components/schemas/Task.yaml"
+  "401":
+    $ref: "../../components/responses/ErrorResponses.yaml#/UnauthorizedError"
+  "404":
+    $ref: "../../components/responses/ErrorResponses.yaml#/NotFoundError"
+  "500":
+    $ref: "../../components/responses/ErrorResponses.yaml#/ServerError"

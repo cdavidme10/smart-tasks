@@ -12,6 +12,7 @@
   "paths": {
     "/auth/login": {
       "post": {
+        "operationId": "login",
         "summary": "Login",
         "tags": [
           "Auth"
@@ -64,6 +65,7 @@
     },
     "/auth/logout": {
       "post": {
+        "operationId": "logout",
         "summary": "Logout",
         "tags": [
           "Auth"
@@ -88,6 +90,7 @@
     },
     "/auth/register": {
       "post": {
+        "operationId": "register",
         "summary": "Register a new user",
         "tags": [
           "Auth"
@@ -121,7 +124,14 @@
         },
         "responses": {
           "201": {
-            "description": "Successfully registered"
+            "description": "Successfully registered",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthResponse"
+                }
+              }
+            }
           },
           "422": {
             "$ref": "#/components/responses/ValidationError"
@@ -134,6 +144,7 @@
     },
     "/tasks": {
       "get": {
+        "operationId": "getTasks",
         "summary": "List all tasks",
         "tags": [
           "Tasks"
@@ -166,6 +177,7 @@
         }
       },
       "post": {
+        "operationId": "createTask",
         "summary": "Create a new task",
         "tags": [
           "Tasks"
@@ -235,6 +247,7 @@
     },
     "/tasks/{id}": {
       "get": {
+        "operationId": "getTask",
         "summary": "Get a task by ID",
         "tags": [
           "Tasks"
@@ -277,6 +290,7 @@
         }
       },
       "put": {
+        "operationId": "updateTask",
         "summary": "Update a task",
         "tags": [
           "Tasks"
@@ -319,7 +333,14 @@
         },
         "responses": {
           "200": {
-            "description": "Task updated"
+            "description": "Task updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Task"
+                }
+              }
+            }
           },
           "401": {
             "$ref": "#/components/responses/UnauthorizedError"
@@ -336,6 +357,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteTask",
         "summary": "Delete a task",
         "tags": [
           "Tasks"
@@ -373,6 +395,7 @@
     },
     "/projects": {
       "get": {
+        "operationId": "getProjects",
         "summary": "List all projects",
         "tags": [
           "Projects"
@@ -405,6 +428,7 @@
         }
       },
       "post": {
+        "operationId": "createProject",
         "summary": "Create a new project",
         "tags": [
           "Projects"
@@ -457,6 +481,7 @@
     },
     "/projects/{id}": {
       "get": {
+        "operationId": "getProject",
         "summary": "Get a project by ID",
         "tags": [
           "Projects"
@@ -499,6 +524,7 @@
         }
       },
       "put": {
+        "operationId": "updateProject",
         "summary": "Update a project",
         "tags": [
           "Projects"
@@ -535,7 +561,14 @@
         },
         "responses": {
           "200": {
-            "description": "Project updated"
+            "description": "Project updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Project"
+                }
+              }
+            }
           },
           "401": {
             "$ref": "#/components/responses/UnauthorizedError"
@@ -552,6 +585,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteProject",
         "summary": "Delete a project",
         "tags": [
           "Projects"
@@ -689,6 +723,13 @@
         "type": "object",
         "properties": {
           "token": {
+            "type": "string",
+            "nullable": false
+          },
+          "token_type": {
+            "type": "string"
+          },
+          "expires_in": {
             "type": "string"
           },
           "user": {
@@ -696,7 +737,7 @@
           }
         }
       },
-      "Error": {
+      "ErrorResponse": {
         "type": "object",
         "properties": {
           "message": {
@@ -741,7 +782,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/Error"
+              "$ref": "#/components/schemas/ErrorResponse"
             }
           }
         }
@@ -751,7 +792,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/Error"
+              "$ref": "#/components/schemas/ErrorResponse"
             }
           }
         }
@@ -761,7 +802,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/Error"
+              "$ref": "#/components/schemas/ErrorResponse"
             }
           }
         }
@@ -781,7 +822,7 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/Error"
+              "$ref": "#/components/schemas/ErrorResponse"
             }
           }
         }

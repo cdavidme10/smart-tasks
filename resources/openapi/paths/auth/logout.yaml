@@ -1,13 +1,14 @@
 post:
+  operationId: logout
   summary: Logout
   tags:
     - Auth
   security:
     - bearerAuth: []
   responses:
-    '200':
+    "200":
       description: Successfully logged out
-    '401':
-      $ref: '../../components/responses/ErrorResponses.yaml#/UnauthorizedError'
-    '500':
-      $ref: '../../components/responses/ErrorResponses.yaml#/ServerError'
+    "401":
+      $ref: "../../components/responses/ErrorResponses.yaml#/UnauthorizedError"
+    "500":
+      $ref: "../../components/responses/ErrorResponses.yaml#/ServerError"

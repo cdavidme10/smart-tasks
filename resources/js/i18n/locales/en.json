@@ -1,15 +1,15 @@
 {
-  "navbar": {
-    "home": "Home",
-    "about": "About"
-  },
-  "home": {
-    "welcome": "Welcome to SmartTasks!",
-    "description": "Organize your tasks, stay focused, and do it all from one app."
-  },
-  "about": {
-    "title": "About SmartTasks",
-    "description1": "SmartTasks is an application designed to help you organize your day-to-day simply, quickly, and efficiently.",
-    "description2": "This app is built with ♥ using Laravel, React, and TailwindCSS."
-  }
+    "navbar": {
+        "home": "Home",
+        "about": "About"
+    },
+    "home": {
+        "welcome": "Welcome to SmartTasks!",
+        "description": "Organize your tasks, stay focused, and do it all from one app."
+    },
+    "about": {
+        "title": "About SmartTasks",
+        "description1": "SmartTasks is an application designed to help you organize your day-to-day simply, quickly, and efficiently.",
+        "description2": "This app is built with ♥ using Laravel, React, and TailwindCSS."
+    }
 }

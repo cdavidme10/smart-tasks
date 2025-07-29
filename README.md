@@ -90,6 +90,12 @@ To ensure every commit runs automated checks (like CI and OpenAPI validation), r
 sail npm run setup:husky
 ```
 
+### 10. Generate api routes based on open-api definition
+
+```bash
+sail npm run setup:husky
+```
+
 Visit [http://localhost](http://localhost) or your custom domain (e.g. `smarttasks.test`).
 
 ## 🌐 Optional: Custom Domain
@@ -106,10 +112,11 @@ To access via `http://smarttasks.test`, add this to your system hosts file:
 sail composer ci:check
 ```
 
-## Validate && Generate OpenAPI bundle
+## Validate && Generate OpenAPI bundle and api frontend routes
 
 ```bash
 sail npm run openapi:generate
+docker-compose run --rm openapi generate -i resources/openapi/apiBundle.json -g typescript-axios -o resources/js/api
 ```
 
 ## 🔐 Authentication API Routes
@@ -195,7 +202,7 @@ Okay, I already had my public repo https://github.com/cdavidme10/smart-tasks usi
 #9 Create Pages for Main Functions in React
 #10 Implement Centralized Data Fetching with React Hooks and Advanced Features
 #11 Create Migrations and Seeders for User, Project, and Task Models
-#12 Ad\d a UserObserver to handle milestone
+#12 Add a UserObserver to handle milestone
 ```
 
 ```bash
@@ -211,6 +218,7 @@ Grok IA help: https://grok.com/chat/ca965877-d231-4ef6-a774-611160987b60
 - ✅ Managers, Repositories, and Interfaces implemented
 - ✅ Database seeded with Projects, Tasks, and Users
 - ✅ UserObserver assigns milestone on 100-user multiples
+- ✅ OpenAPI-based API calls generated from open api spec
 
 WIP:
 

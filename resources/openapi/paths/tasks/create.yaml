@@ -1,3 +1,4 @@
+operationId: createTask
 summary: Create a new task
 tags:
   - Tasks
@@ -23,15 +24,15 @@ requestBody:
           project_id:
             type: integer
 responses:
-  '201':
+  "201":
     description: Task created
     content:
       application/json:
         schema:
-          $ref: '../../components/schemas/Task.yaml'
-  '401':
-    $ref: '../../components/responses/ErrorResponses.yaml#/UnauthorizedError'
-  '422':
-    $ref: '../../components/responses/ErrorResponses.yaml#/ValidationError'
-  '500':
-    $ref: '../../components/responses/ErrorResponses.yaml#/ServerError'
+          $ref: "../../components/schemas/Task.yaml"
+  "401":
+    $ref: "../../components/responses/ErrorResponses.yaml#/UnauthorizedError"
+  "422":
+    $ref: "../../components/responses/ErrorResponses.yaml#/ValidationError"
+  "500":
+    $ref: "../../components/responses/ErrorResponses.yaml#/ServerError"
