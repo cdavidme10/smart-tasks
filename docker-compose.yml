@@ -27,6 +27,7 @@ services:
             - mailpit
             - selenium
             - node
+            - openapi
 
     mysql:
         image: "mysql:8.0"
@@ -116,6 +117,15 @@ services:
             sh -c "npm install && npm run dev"
         ports:
             - "${VITE_PORT:-5173}:5173"
+        networks:
+            - smarttasks
+
+    openapi:
+        image: openapitools/openapi-generator-cli:latest
+        user: "${WWWUSER:-1000}:${WWWGROUP:-1000}"
+        volumes:
+            - ".:/local"
+        working_dir: /local
         networks:
             - smarttasks
 

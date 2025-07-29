@@ -3,28 +3,28 @@ UnauthorizedError:
   content:
     application/json:
       schema:
-        $ref: '../schemas/Error.yaml'
+        $ref: "../schemas/ErrorResponse.yaml"
 ForbiddenError:
   description: You do not have access to this resource
   content:
     application/json:
       schema:
-        $ref: '../schemas/Error.yaml'
+        $ref: "../schemas/ErrorResponse.yaml"
 NotFoundError:
   description: Resource not found
   content:
     application/json:
       schema:
-        $ref: '../schemas/Error.yaml'
+        $ref: "../schemas/ErrorResponse.yaml"
 ValidationError:
   description: Input validation failed
   content:
     application/json:
       schema:
-        $ref: '../schemas/ValidationError.yaml'
+        $ref: "../schemas/ValidationError.yaml"
 ServerError:
   description: Unexpected internal server error
   content:
     application/json:
       schema:
-        $ref: '../schemas/Error.yaml'
+        $ref: "../schemas/ErrorResponse.yaml"

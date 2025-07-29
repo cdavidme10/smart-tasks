@@ -1,4 +1,5 @@
 post:
+  operationId: login
   summary: Login
   tags:
     - Auth
@@ -16,15 +17,15 @@ post:
             password:
               type: string
   responses:
-    '200':
+    "200":
       description: Successful login
       content:
         application/json:
           schema:
-            $ref: '../../components/schemas/AuthResponse.yaml'
-    '401':
-      $ref: '../../components/responses/ErrorResponses.yaml#/UnauthorizedError'
-    '422':
-      $ref: '../../components/responses/ErrorResponses.yaml#/ValidationError'
-    '500':
-      $ref: '../../components/responses/ErrorResponses.yaml#/ServerError'
+            $ref: "../../components/schemas/AuthResponse.yaml"
+    "401":
+      $ref: "../../components/responses/ErrorResponses.yaml#/UnauthorizedError"
+    "422":
+      $ref: "../../components/responses/ErrorResponses.yaml#/ValidationError"
+    "500":
+      $ref: "../../components/responses/ErrorResponses.yaml#/ServerError"

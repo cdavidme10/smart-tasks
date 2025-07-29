@@ -1,3 +1,4 @@
+operationId: createProject
 summary: Create a new project
 tags:
   - Projects
@@ -14,15 +15,15 @@ requestBody:
           name:
             type: string
 responses:
-  '201':
+  "201":
     description: Project created
     content:
       application/json:
         schema:
-          $ref: '../../components/schemas/Project.yaml'
-  '401':
-    $ref: '../../components/responses/ErrorResponses.yaml#/UnauthorizedError'
-  '422':
-    $ref: '../../components/responses/ErrorResponses.yaml#/ValidationError'
-  '500':
-    $ref: '../../components/responses/ErrorResponses.yaml#/ServerError'
+          $ref: "../../components/schemas/Project.yaml"
+  "401":
+    $ref: "../../components/responses/ErrorResponses.yaml#/UnauthorizedError"
+  "422":
+    $ref: "../../components/responses/ErrorResponses.yaml#/ValidationError"
+  "500":
+    $ref: "../../components/responses/ErrorResponses.yaml#/ServerError"

@@ -1,3 +1,4 @@
+operationId: updateTask
 summary: Update a task
 tags:
   - Tasks
@@ -23,13 +24,17 @@ requestBody:
           status:
             type: string
 responses:
-  '200':
+  "200":
     description: Task updated
-  '401':
-    $ref: '../../components/responses/ErrorResponses.yaml#/UnauthorizedError'
-  '404':
-    $ref: '../../components/responses/ErrorResponses.yaml#/NotFoundError'
-  '422':
-    $ref: '../../components/responses/ErrorResponses.yaml#/ValidationError'
-  '500':
-    $ref: '../../components/responses/ErrorResponses.yaml#/ServerError'
+    content:
+      application/json:
+        schema:
+          $ref: "../../components/schemas/Task.yaml"
+  "401":
+    $ref: "../../components/responses/ErrorResponses.yaml#/UnauthorizedError"
+  "404":
+    $ref: "../../components/responses/ErrorResponses.yaml#/NotFoundError"
+  "422":
+    $ref: "../../components/responses/ErrorResponses.yaml#/ValidationError"
+  "500":
+    $ref: "../../components/responses/ErrorResponses.yaml#/ServerError"
